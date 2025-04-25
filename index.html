@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Spotlight Radio FM</title>
+  <link rel="icon" href="spotlight-logo.png" type="image/png">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Arial', sans-serif;
+      background-color: #0D0D23;
+      color: #ffffff;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    img.logo {
+      width: 150px;
+      margin-bottom: 20px;
+    }
+
+    h1 {
+      font-size: 28px;
+      margin-bottom: 10px;
+    }
+
+    p {
+      font-size: 16px;
+      margin-bottom: 30px;
+      color: #ccc;
+    }
+
+    audio {
+      width: 90%;
+      max-width: 400px;
+      margin-bottom: 20px;
+    }
+
+    .tip {
+      font-size: 14px;
+      color: #888;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+  <img src="spotlight-logo.png" alt="Spotlight Radio FM Logo" class="logo" />
+  <h1>Spotlight Radio FM</h1>
+  <p>Journey to New Beginnings</p>
+
+  <audio id="audioPlayer" controls autoplay>
+    <source src="https://cast2.my-control-panel.com/proxy/dennis/stream" type="audio/mpeg">
+    Your browser does not support the audio element.
+  </audio>
+
+  <div class="tip">
+    Tip: Tap <strong>Share</strong> → <strong>Add to Home Screen</strong> to install this app on your iPhone.
+  </div>
+
+  <script>
+    // Force play automatically even on some mobile browsers
+    window.addEventListener('load', () => {
+      const player = document.getElementById('audioPlayer');
+      player.play().catch(error => {
+        console.log('Autoplay blocked, user interaction needed.');
+      });
+    });
+  </script>
+</body>
+</html>
